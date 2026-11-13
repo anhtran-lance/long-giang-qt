@@ -1,0 +1,44 @@
+# Danh mục & lưu đồ QT – Long Giang E&C (LGEC)
+
+Trang HTML một file, tra cứu danh mục và lưu đồ 22 quy trình (18 QT mảng thi công + 4 QT dùng lại), xây trên Base.vn.
+
+- **Link xem:** xem mục "Link" cuối file này (đã deploy trên Vercel)
+- **File chính:** `index.html` – tự chứa logo, dữ liệu, giao diện; mở thẳng bằng trình duyệt là chạy, không cần build.
+
+## Cấu trúc
+
+```
+index.html     ← BẢN MỚI NHẤT đang chạy trên web (đã có "Lưu đồ tổng quan móc nối các QT")
+source/        ← mã nguồn Python dựng bản cũ (xem lưu ý bên dưới)
+  HUONG-DAN-SUA.md   hướng dẫn chi tiết cú pháp dữ liệu/lưu đồ
+  lgec_data.py       dữ liệu 18 QT thi công
+  lg_data.py         dữ liệu 4 QT dùng lại
+  lanes_map.py       đổi tên vai trò → tên đơn vị thật
+  build_all.py       dựng ra index.html (bản cũ)
+  assets/            logo
+```
+
+## ⚠️ Lưu ý quan trọng khi chỉnh sửa
+
+`index.html` là bản **mới hơn** `source/`: nó có thêm lưu đồ tổng quan (`renderMap`, CSS `.map`, `.mnode`) mà `source/build_all.py` **chưa có**. Nếu chạy `build_all.py` sẽ ghi đè mất phần này.
+
+Cách sửa an toàn:
+
+1. **Sửa nội dung (chữ, bước, vai trò):** sửa trực tiếp `index.html`.
+   - Dữ liệu nằm trong thẻ `<script id="data" type="application/json">` (JSON một dòng dài).
+   - Giao diện/CSS ở đầu file; mã vẽ lưu đồ trong thẻ `<script>` cuối file.
+2. **Muốn dùng lại workflow Python:** port `renderMap` + CSS `.map` từ `index.html` sang `source/build_all.py` trước, rồi mới dựng lại; so sánh bằng `diff` với `index.html`.
+3. Cú pháp bước/lưu đồ: xem `source/HUONG-DAN-SUA.md` (vẫn đúng cho phần dữ liệu).
+
+## Quy trình cập nhật & deploy
+
+Vercel đã nối với repo này: **mỗi lần push lên nhánh `main` sẽ tự deploy lại**, link giữ nguyên.
+
+```bash
+git clone https://github.com/trananhhoai-lang/long-giang-qt.git
+cd long-giang-qt
+# sửa index.html, mở thử bằng trình duyệt
+git add -A && git commit -m "Mô tả thay đổi" && git push
+```
+
+Sau ~30 giây, link Vercel cập nhật.
