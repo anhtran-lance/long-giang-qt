@@ -35,7 +35,7 @@ Cách sửa an toàn:
 Vercel đã nối với repo này: **mỗi lần push lên nhánh `main` sẽ tự deploy lại**, link giữ nguyên.
 
 ```bash
-git clone https://github.com/trananhhoai-lang/long-giang-qt.git
+git clone https://github.com/anhtran-lance/long-giang-qt.git
 cd long-giang-qt
 # sửa index.html, mở thử bằng trình duyệt
 git add -A && git commit -m "Mô tả thay đổi" && git push
