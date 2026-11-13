@@ -2,7 +2,9 @@
 
 Trang HTML một file, tra cứu danh mục và lưu đồ 22 quy trình (18 QT mảng thi công + 4 QT dùng lại), xây trên Base.vn.
 
-- **Link xem:** xem mục "Link" cuối file này (đã deploy trên Vercel)
+- **Link xem (gửi khách):** https://long-giang-qt.vercel.app
+- **Repo:** https://github.com/anhtran-lance/long-giang-qt (công khai)
+- **Vercel project:** `long-giang-qt` thuộc team `trananhhoai0-lang` (dashboard: https://vercel.com/trananhhoai0-lang/long-giang-qt)
 - **File chính:** `index.html` – tự chứa logo, dữ liệu, giao diện; mở thẳng bằng trình duyệt là chạy, không cần build.
 
 ## Cấu trúc
