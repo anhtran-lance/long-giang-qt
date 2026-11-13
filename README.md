@@ -3,6 +3,7 @@
 Trang HTML một file, tra cứu danh mục và lưu đồ 22 quy trình (18 QT mảng thi công + 4 QT dùng lại), xây trên Base.vn.
 
 - **Link xem (gửi khách):** https://long-giang-qt.vercel.app
+- **Link dự phòng (GitHub Pages, tự cập nhật khi push):** https://anhtran-lance.github.io/long-giang-qt/
 - **Repo:** https://github.com/anhtran-lance/long-giang-qt (công khai)
 - **Vercel project:** `long-giang-qt` thuộc team `trananhhoai0-lang` (dashboard: https://vercel.com/trananhhoai0-lang/long-giang-qt)
 - **File chính:** `index.html` – tự chứa logo, dữ liệu, giao diện; mở thẳng bằng trình duyệt là chạy, không cần build.
@@ -34,7 +35,9 @@ Cách sửa an toàn:
 
 ## Quy trình cập nhật & deploy
 
-Vercel đã nối với repo này: **mỗi lần push lên nhánh `main` sẽ tự deploy lại**, link giữ nguyên.
+- **GitHub Pages** (link dự phòng) tự cập nhật mỗi lần push lên `main`, không dính hạn mức Vercel.
+- **Vercel**: đã TẮT tự deploy khi push (đặt Ignored Build Step = `exit 0`) để tránh chạm hạn mức. Link `long-giang-qt.vercel.app` giữ nguyên bản đã deploy, KHÔNG tự đổi theo repo.
+  - Muốn cập nhật link Vercel: vào Vercel → project `long-giang-qt` → Settings → Git → Ignored Build Step → chọn "Automatic", rồi push (hoặc Redeploy), xong đặt lại `exit 0`.
 
 ```bash
 git clone https://github.com/anhtran-lance/long-giang-qt.git
@@ -42,5 +45,3 @@ cd long-giang-qt
 # sửa index.html, mở thử bằng trình duyệt
 git add -A && git commit -m "Mô tả thay đổi" && git push
 ```
-
-Sau ~30 giây, link Vercel cập nhật.
